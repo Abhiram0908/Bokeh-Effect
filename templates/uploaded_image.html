@@ -8,6 +8,9 @@
 <body>
     <div class="container">
         <div class="row">
+            <h1>
+                This is output page
+            </h1>
             <p>
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -21,7 +24,17 @@
             </p>
             {% if filename %}
             <div>
-                <img src="{{ url_for('display_image', filename=filename) }}">
+
+                {% if processed_image %}
+                <h2>Processed Image:</h2>
+                <img src="{{ processed_image }}" alt="Processed Image">
+                {% endif %}
+
+                <p><a href="{{ url_for('/') }}">
+                        <h3>Back to Home</h3>
+                    </a></p>
+                <!-- <img src="{{ url_for('display_image', filename=filename) }}"> -->
+                <!-- <img src="data:image/png;base64,{{ processed_image|b64encode }}" alt="Processed Image"> -->
             </div>
             {% endif %}
         </div>
