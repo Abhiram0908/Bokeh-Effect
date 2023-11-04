@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 body {
   display: flex;
   align-items: center;
@@ -12,6 +14,7 @@ body {
   min-height: 100vh;
   background: #0fb8ac;
 }
+
 .drag-area {
   border: 2px dashed #fff;
   height: 500px;
@@ -21,36 +24,59 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: relative;
 }
+
 .drag-area.active {
   border: 2px solid #fff;
 }
+
+.custom-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.custom-label input {
+  display: none;
+}
+
+.browse-button {
+  font-size: 20px;
+  font-weight: 500;
+  color: #0fb8ac !important; /* Blue text */
+  background: #fff; /* White background */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .drag-area .icon {
   font-size: 100px;
   color: #fff;
 }
+
 .drag-area header {
   font-size: 30px;
   font-weight: 500;
   color: #fff;
+  margin-bottom: 15px;
 }
+
 .drag-area span {
   font-size: 25px;
   font-weight: 500;
   color: #fff;
-  margin: 10px 0 15px 0;
 }
-.drag-area button {
-  padding: 10px 25px;
-  font-size: 20px;
-  font-weight: 500;
-  border: none;
-  outline: none;
-  background: #fff;
-  color: #0fb8ac;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 .drag-area img {
   height: 100%;
   width: 100%;

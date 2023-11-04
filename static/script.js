@@ -36,6 +36,18 @@ dropArea.addEventListener("drop", (event) => {
   showFile(); //calling function
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const fileInput = document.getElementById("fileInput");
+    const uploadForm = document.getElementById("uploadForm");
+
+    fileInput.addEventListener("change", function() {
+        if (fileInput.files.length > 0) {
+            // Submit the form when a file is selected
+            uploadForm.submit();
+        }
+    });
+});
+
 function showFile() {
   let fileType = file.type; //getting selected file type
   let validExtensions = ["image/jpeg", "image/jpg", "image/png"]; //adding some valid image extensions in array

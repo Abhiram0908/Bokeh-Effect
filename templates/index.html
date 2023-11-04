@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <title>Bokeh Effect</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +12,12 @@
         <header>
             Drag and Drop to Upload File
         </header>
-        <span>OR</span>
-        <button>Browse File</button>
-        <input type="file" hidden>
+        <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+            <label for="fileInput" class="custom-label">
+                <span class="browse-button">Browse File</span>
+            </label>
+            <input type="file" name="image" id="fileInput" hidden>
+        </form>
     </div>
 
     <script src="/static/script.js"></script>
