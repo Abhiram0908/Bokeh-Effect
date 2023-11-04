@@ -60,7 +60,7 @@ def upload_image():
 
     if file.filename == "":
         flash("No image selected for uploading")
-        return render_template("uploaded_image.html")
+        return render_template("index.html", filename = 'filename')
 
     if file and allowed_file(file.filename):
         image = Image.open(file)
@@ -76,12 +76,9 @@ def upload_image():
         
         return send_file(image_io, mimetype='image/png')
 
-
-        # return render_template("uploaded_image.html", processed_image=image_with_bokeh)
-
     else:
         flash("Allowed image types are - png, jpg, jpeg, gif")
-        return render_template("uploaded_image.html")
+        return render_template("index.html")
 
 
 @app.route("/display/<filename>")
