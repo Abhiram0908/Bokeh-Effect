@@ -1,9 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Uploaded Image</title>
 </head>
+
 <body>
-    <img src="{{ uploaded_image }}" alt="Uploaded Image">
+    <div class="container">
+        <div class="row">
+            <p>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            </p>
+            {% if filename %}
+            <div>
+                <img src="{{ url_for('display_image', filename=filename) }}">
+            </div>
+            {% endif %}
+        </div>
+    </div>
 </body>
+
 </html>
