@@ -74,7 +74,16 @@ def upload_image():
         bokeh_image.save(image_io, format="PNG")
         image_io.seek(0)
         
-        return send_file(image_io, mimetype='image/png')
+        bokeh_filename = "bokeh_result.png"
+        bokeh_image_path = os.path.join(app.config["UPLOAD_FOLDER"], bokeh_filename)
+        bokeh_image.save(bokeh_image_path)
+
+        # Pass both image paths to the result.html template
+        uploaded_image_path = os.path.join(app.config["UPLOAD_FOLDER"], secure_filename(file.filename))
+        image.save(uploaded_image_path)
+        
+        return render_template("page.html", uploaded_image=uploaded_image_path, bokeh_image=bokeh_image_path)
+
 
     else:
         flash("Allowed image types are - png, jpg, jpeg, gif")

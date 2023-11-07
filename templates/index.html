@@ -46,28 +46,28 @@
         }
 
         label.upload-label {
-        display: inline-block;
-        background-color: #3498db;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-        width: auto; /* Automatically adjust width to text length */
-        margin: 0 auto; /* Center horizontally */
-    }
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: auto; /* Automatically adjust width to text length */
+            margin: 0 auto; /* Center horizontally */
+        }
 
-    .btn-info {
-        display: inline-block;
-        background-color: #3498db;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-        width: auto; /* Automatically adjust width to text length */
-        margin: 0 auto; /* Center horizontally */
-    }
+        .btn-info {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: auto; /* Automatically adjust width to text length */
+            margin: 0 auto; /* Center horizontally */
+        }
 
         .btn-info:hover {
             background-color: #2980b9;
@@ -83,13 +83,13 @@
             <p>
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
-            <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-            {% endwith %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
             </p>
             {% if filename %}
             <div>
@@ -103,12 +103,31 @@
                         <input type="file" name="file" id="file" class="form-control" autocomplete="off" required>
                     </p>
                 </dl>
+                <div id="selected-file-name"></div>
                 <p>
                     <input type="submit" value="Submit" class="btn btn-info">
                 </p>
             </form>
         </div>
     </div>
+    <script>
+        // Function to update the selected file name
+        function updateFileName() {
+            var fileInput = document.getElementById('file');
+            var selectedFileName = document.getElementById('selected-file-name');
+
+            fileInput.addEventListener('change', function () {
+                if (fileInput.files.length > 0) {
+                    selectedFileName.innerHTML = 'Selected file: ' + fileInput.files[0].name;
+                } else {
+                    selectedFileName.innerHTML = '';
+                }
+            });
+        }
+
+        // Call the function when the document is ready
+        document.addEventListener('DOMContentLoaded', updateFileName);
+    </script>
 </body>
 
 </html>

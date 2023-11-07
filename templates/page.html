@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bokeh Result</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        h1 {
+            margin: 20px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 45%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bokeh Result</h1>
+    <div class="image-container">
+        <div class="image">
+            <h2>Uploaded Image:</h2>
+            <img src="{{ uploaded_image }}" alt="Uploaded Image">
+        </div>
+        <div class="image">
+            <h2>Bokeh Image:</h2>
+            <img src="{{ bokeh_image }}" alt="Bokeh Image">
+        </div>
+    </div>
+</body>
+</html>
